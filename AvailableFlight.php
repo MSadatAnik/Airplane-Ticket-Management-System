@@ -28,7 +28,13 @@
                 <th>Destination</th>
                 <th>Time</th>
                 <th>Date</th>
-                <th>Seats</th>
+                <th>Total Seats</th>
+                <th>Economy Seats</th>
+                <th>Business Seats</th>
+                <th>First Class Seats</th>
+                <th>Pilot Name</th>
+                <th>Air Hostess 1</th>
+                <th>Air Hostess 2</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -36,7 +42,8 @@
             <?php
             require_once("Connection.php");
             require_once("Flight.php");
-        session_start();
+            require_once("Staff.php");
+            session_start();
             // Assuming you have a database connection $conn
             //$result = $con->query("SELECT * FROM flight");
 
@@ -58,6 +65,8 @@
                 $result= $flight->availableFlight($con);
             }
 
+            $staff = new staff();
+
             
             
 
@@ -72,7 +81,13 @@
                     echo "<td>" . $row['destination'] . "</td>";
                     echo "<td>" . $row['fTime'] . "</td>";
                     echo "<td>" . $row['fDate'] . "</td>";
-                    echo "<td>" . $row['availableSeats'] . "</td>";
+                    echo "<td>" . $row['totalSeats'] . "</td>";
+                    echo "<td>" . $row['economySeats'] . "</td>";
+                    echo "<td>" . $row['businessSeats'] . "</td>";
+                    echo "<td>" . $row['firstClassSeats'] . "</td>";
+                    echo "<td>" . $staff->getStaffNameById($row['pilot'],$con). "</td>";
+                    echo "<td>" . $staff->getStaffNameById($row['airHostess1'],$con). "</td>";
+                    echo "<td>" . $staff->getStaffNameById($row['airHostess2'],$con). "</td>";
                     echo "<td>";
                     echo "<a href='EditFlight.php?id=".$row['id']."'>Edit</a> | ";
                     echo "<a href='CancelFlightProcess.php?id=".$row['id']."'onclick='return confirm(\"Are you sure you want to cancel this flight?\");'>Cancel</a>";

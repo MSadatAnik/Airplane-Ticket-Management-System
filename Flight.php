@@ -9,37 +9,19 @@ class  Flight{
     private $availableSeats;
 
 
-  /*  public function construct($adminName,$id,$departure,$destination,$fTime,$fDate,$availableSeats)
+    function createFlight($adminName,$departure,$destination,$fTime,$fDate,$availableSeats,$economySeats,$businessSeats,$firstClassSeats,$pilot,$airHostess1,$airHostess2,$con)
     {
-        $this->adminName=$adminName;
-        $this->id=$id;
-        $this->departure = $departure;
-        $this->destination = $destination;
-        $this->fTime = $fTime;
-        $this->fDate = $fDate;
-        $this->availableSeats = $availableSeats;
-    }*/
+       
 
-    function createFlight($adminName,$departure,$destination,$fTime,$fDate,$availableSeats,$con)
-    {
-       // $sql = "INSERT INTO flight (adminName,departure,destination,fTIme,fDate,availableSeats) 
-        //VALUES ('$adminName','$departure',''$destination','$fTime','$fDate','$availableSeats')";
+        $query="INSERT INTO flight (departure, destination, fDate, fTime, totalSeats,economySeats,businessSeats,firstClassSeats,pilot,airHostess1,airHostess2)
+                VALUES ('$departure', '$destination', '$fDate', '$fTime', '$availableSeats', '$economySeats', '$businessSeats', '$firstClassSeats','$pilot','$airHostess1','$airHostess2')";
 
-        $sql = $con->prepare("INSERT INTO flight (departure, destination, fDate, fTime, availableSeats) VALUES (?, ?, ?, ?, ?)");
-    $sql->bind_param('sssss', $departure, $destination, $fDate, $fTime, $availableSeats);
+        if(mysqli_query($con,$query) == TRUE) {
+            echo "Flight created successfully!";
+        } else {
+            echo "Error: " . $query . "<br>" . $con->error;
+        }
 
-    // Execute the statement
-    $sql->execute();
-
-
-    if ($sql->affected_rows > 0) {
-        return "Flight created successfully!";
-      } else {
-        return "Error creating flight: " . $con->error;
-      }
-  
-      // Close the connection (always close after use)
-      $sql->close();
     }
 
     function availableFlight($con)
@@ -100,9 +82,6 @@ class  Flight{
     {
 
     }
-
-
-
 
 
 
