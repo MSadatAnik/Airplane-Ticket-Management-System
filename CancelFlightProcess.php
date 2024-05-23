@@ -8,9 +8,8 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     
-    $flight->cancelFlight($id,$con);
+    $flight->cancelFlight($id,$con); //It will cancel the flight
 }
-    // Delete the flight
     else {
         echo "Invalid flight ID.";
         exit();

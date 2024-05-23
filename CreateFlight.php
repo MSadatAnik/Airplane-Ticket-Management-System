@@ -79,9 +79,10 @@
                 require_once("Connection.php");
                 require_once("Staff.php");
                 $staff = new staff();
-                $pilots = $staff->getAllPilot($con);
+                $pilots = $staff->getAllPilot($con); //Geting all pilots information 
                
 
+                //storing every pilots id and name for dropdown box
                 foreach($pilots as $pilot)
                 {
                     echo "<option value='" . htmlspecialchars($pilot['id']) . "'>";
@@ -106,9 +107,10 @@
             require_once("Connection.php");
             require_once("Staff.php");
             $staff = new staff();
-            $airHostesses = $staff->getAllAirHostess($con);
+            $airHostesses = $staff->getAllAirHostess($con); //Geting all Air Hostess information 
 
 
+             //storing every Air Hostess id and name for dropdown box
             foreach($airHostesses as $airHostess)
             {
                 echo "<option value='" . htmlspecialchars($airHostess['id']) . "'>";
@@ -133,9 +135,10 @@
             require_once("Connection.php");
             require_once("Staff.php");
             $staff = new staff();
-            $airHostesses = $staff->getAllAirHostess($con);
+            $airHostesses = $staff->getAllAirHostess($con); //Geting all Air Hostess information
 
 
+            //storing every Air Hostess id and name for dropdown box
             foreach($airHostesses as $airHostess)
             {
                 echo "<option value='" . htmlspecialchars($airHostess['id']) . "'>";

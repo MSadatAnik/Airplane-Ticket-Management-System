@@ -44,20 +44,20 @@
             require_once("Flight.php");
             require_once("Staff.php");
             session_start();
-            // Assuming you have a database connection $conn
-            //$result = $con->query("SELECT * FROM flight");
 
+            //if Show All button is clicked it will reset the search and show all available flights
             if(isset($_GET['showAll']))
             {
                 $flight = new flight();
                 $result= $flight->availableFlight($con);
             }
+            //if search button is clicked with a id it will show the flight with that id
             else if (isset($_GET['searchID']) && !empty($_GET['searchID'])) {
                 $searchID = intval($_GET['searchID']); // Sanitize the input
                 $flight = new flight();
                 $result = $flight->searchFlightByID($con, $searchID);
             }
-            
+            //No button is clicked, showing all available flights
             else
             {
 
@@ -68,9 +68,7 @@
             $staff = new staff();
 
             
-            
-
-            //while ($row = $result->fetch_assoc()) 
+             //fetching data of every indiviual flight
             if($result!=null)
             {
 
@@ -85,9 +83,9 @@
                     echo "<td>" . $row['economySeats'] . "</td>";
                     echo "<td>" . $row['businessSeats'] . "</td>";
                     echo "<td>" . $row['firstClassSeats'] . "</td>";
-                    echo "<td>" . $staff->getStaffNameById($row['pilot'],$con). "</td>";
-                    echo "<td>" . $staff->getStaffNameById($row['airHostess1'],$con). "</td>";
-                    echo "<td>" . $staff->getStaffNameById($row['airHostess2'],$con). "</td>";
+                    echo "<td>" . $staff->getStaffNameById($row['pilot'],$con). "</td>"; //To get pilot name using Pilot id
+                    echo "<td>" . $staff->getStaffNameById($row['airHostess1'],$con). "</td>"; //To get Air Hostess1 name using Air hostess1 id
+                    echo "<td>" . $staff->getStaffNameById($row['airHostess2'],$con). "</td>";//To get Air Hostess2 name using Air hostess2 id
                     echo "<td>";
                     echo "<a href='EditFlight.php?id=".$row['id']."'>Edit</a> | ";
                     echo "<a href='CancelFlightProcess.php?id=".$row['id']."'onclick='return confirm(\"Are you sure you want to cancel this flight?\");'>Cancel</a>";
