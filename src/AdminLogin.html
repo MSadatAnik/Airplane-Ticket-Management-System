@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+    <head>
+        <title>Login</title>
+    </head>
+    <body>
+        <div>
+            <h1>LOGIN</h1>
+            <!-- Form for admin login, using POST method to submit data to AdminLoginProcess.php -->
+            <form action="AdminLoginProcess.php" method="post">
+                <!-- Input field for email, with placeholder text and required attribute -->
+                <input type="text" name="email" placeholder="Email" required>
+                <br>
+                <!-- Input field for password, with placeholder text and required attribute -->
+                <input type="password" name="password" placeholder="Password" required>
+                <br>
+                <!-- Button to submit the login form -->
+                <button class="Btn" name="login">Login</button>
+            </form>
+            <!-- Button to go back to the Index page -->
+            <button class="Btn"><a href="Index.php">Back</a></button>
+        </div>
+    </body>
+</html>
