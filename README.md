@@ -37,5 +37,5 @@ The Airplane Ticket Management System is a web-based application developed in PH
 * Md Mazharul Islam Khan
 * Mubasshir Sadat
 * Minhazur Rahman
-* Tohed Anwar
+* Md. Tohedul Anwar Rakib
   
