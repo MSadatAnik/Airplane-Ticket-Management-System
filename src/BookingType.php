@@ -11,37 +11,36 @@
 ?>
 
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Booking</title>
-</head>
-<body>
-    <!-- Form for booking a flight -->
-    <form action="BookingProcess.php" method="post">
-        <!-- Hidden input field to pass the flight ID to the server -->
-        <input type="hidden" name="id" value="<?php echo $id; ?>">
+    <head>
+        <title>Booking</title>
+    </head>
+    <body>
+        <!-- Form for booking a flight -->
+        <form action="BookingProcess.php" method="post">
+            <!-- Hidden input field to pass the flight ID to the server -->
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
 
-        <!-- Input field for the user's email -->
-        <input type="text" name="email" placeholder="Email" required>
-        <br>
-        
-        <!-- Radio button for selecting Business Class -->
-        <label>Business Class</label>
-        <input type="radio" name="class" value="businessClass" required>
-        <br>
+            <!-- Input field for the user's email -->
+            <input type="text" name="email" placeholder="Email" required>
+            <br>
+            
+            <!-- Radio button for selecting Business Class -->
+            <label>Business Class</label>
+            <input type="radio" name="class" value="businessClass" required>
+            <br>
 
-        <!-- Radio button for selecting First Class -->
-        <label>First Class</label>
-        <input type="radio" name="class" value="firstClass" required>
-        <br>
+            <!-- Radio button for selecting First Class -->
+            <label>First Class</label>
+            <input type="radio" name="class" value="firstClass" required>
+            <br>
 
-        <!-- Radio button for selecting Economy Class -->
-        <label>Economy Class</label>
-        <input type="radio" name="class" value="economyClass" required>
-        <br>
+            <!-- Radio button for selecting Economy Class -->
+            <label>Economy Class</label>
+            <input type="radio" name="class" value="economyClass" required>
+            <br>
 
-        <!-- Submit button to confirm the booking -->
-        <button class="Btn">Confirm</button>
-    </form>
-</body>
+            <!-- Submit button to confirm the booking -->
+            <button class="Btn">Confirm</button>
+        </form>
+    </body>
 </html>

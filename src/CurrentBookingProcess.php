@@ -18,22 +18,22 @@
     $result = $booking->currentBooking($localEmail, $con);
 
     // Display the bookings in a table format
-    echo "<table border='2'>"; // Start table
-    echo "<tr>"; // Start table row
-    echo "<th>BookingId</th>"; // Table header for BookingId
-    echo "<th>FlightId</th>"; // Table header for FlightId
-    echo "<th>Price</th>"; // Table header for Price
-    echo "<th>TicketType</th>"; // Table header for TicketType
+    echo "<table border='2'>"; 
+    echo "<tr>"; 
+    echo "<th>BookingId</th>"; 
+    echo "<th>FlightId</th>"; 
+    echo "<th>Price</th>"; 
+    echo "<th>TicketType</th>"; 
     echo "</tr>"; // End table row
 
     // Loop through the result set and display each booking
     while ($row = $result->fetch_assoc()) {
-        echo "<tr>"; // Start table row for each booking
-        echo "<td>" . $row['bId'] . "</td>"; // Display BookingId
-        echo "<td>" . $row['id'] . "</td>"; // Display FlightId
-        echo "<td>" . $row['price'] . "</td>"; // Display Price
-        echo "<td>" . $row['ticketType'] . "</td>"; // Display TicketType
-        echo "</tr>"; // End table row for each booking
+        echo "<tr>"; 
+        echo "<td>" . $row['bId'] . "</td>";            // Display BookingId
+        echo "<td>" . $row['id'] . "</td>";             // Display FlightId
+        echo "<td>" . $row['price'] . "</td>";          // Display Price
+        echo "<td>" . $row['ticketType'] . "</td>";     // Display TicketType
+        echo "</tr>"; 
     }
 
     echo "</table>"; // End table

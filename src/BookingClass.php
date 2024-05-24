@@ -1,9 +1,9 @@
 <?php
-    // Define the Booking class
+
     class Booking {
         // Public properties for serial number and ticket type
-        public $serialNo;
-        public $ticketType;
+        public string $serialNo;
+        public string $ticketType;
 
         /**
          * Method to book a flight
@@ -14,6 +14,7 @@
          * @param float   $price Price of the ticket
          * @param mysqli  $con Database connection
          */
+        
         public function bookFlight($id, $email, $class, $price, $con) {
           
             try {
