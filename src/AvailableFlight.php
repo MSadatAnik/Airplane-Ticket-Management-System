@@ -48,20 +48,20 @@
             //if Show All button is clicked it will reset the search and show all available flights
             if(isset($_GET['showAll']))
             {
-                $flight = new flight();
+                $flight = new App\flight();
                 $result= $flight->availableFlight($con);
             }
             //if search button is clicked with a id it will show the flight with that id
             else if (isset($_GET['searchID']) && !empty($_GET['searchID'])) {
                 $searchID = intval($_GET['searchID']); // Sanitize the input
-                $flight = new flight();
+                $flight = new App\flight();
                 $result = $flight->searchFlightByID($con, $searchID);
             }
             //No button is clicked, showing all available flights
             else
             {
 
-                $flight = new flight();
+                $flight = new App\flight();
                 $result= $flight->availableFlight($con);
             }
 

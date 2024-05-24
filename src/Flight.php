@@ -1,4 +1,6 @@
 <?php
+
+namespace APP;
 class  Flight{
     private $adminName;
     private $id;
@@ -7,6 +9,9 @@ class  Flight{
     private $fTime;
     private $fDate;
     private $availableSeats;
+    private $pilot;
+    private $airHostess1;
+    private $airHostess2;
 
 
     //function for creating new flight
@@ -17,12 +22,17 @@ class  Flight{
         $query="INSERT INTO flight (adminName,departure, destination, fDate, fTime, totalSeats,economySeats,businessSeats,firstClassSeats,pilot,airHostess1,airHostess2)
                 VALUES ('$adminName','$departure', '$destination', '$fDate', '$fTime', '$availableSeats', '$economySeats', '$businessSeats', '$firstClassSeats','$pilot','$airHostess1','$airHostess2')";
 
-        if(mysqli_query($con,$query) == TRUE) {
-            echo "Flight created successfully!";
+        /*if(mysqli_query($con,$query) == TRUE) {
+            return"Flight created successfully!";
         } else {
-            echo "Error: " . $query . "<br>" . $con->error;
+            return "Error: <br>" . $con->error;
+        }*/
+        if($con->query($query)) {
+            
+            return"Flight created successfully!";
+        } else {
+            return "Error: <br>";
         }
-
     }
 
     //function for viewing all created flights / available flights
@@ -42,6 +52,7 @@ class  Flight{
                     return $flights;
                 } else {
                     echo "No flights found.";
+                   
      }
 
     }
@@ -74,12 +85,11 @@ class  Flight{
         if ($result) {
             echo "Flight deleted successfully!";
         } else {
-            echo "Error: " . $con->error;
+            echo "Flight deletion failed!!";
         }
         
        
-        header("Location: AvailableFlight.php"); // Redirect to the flight list page after deletion
-        exit();
+        
     } 
      
     //functiom for editng a flight
@@ -94,7 +104,7 @@ class  Flight{
         if ($result) {
             echo "Flight edited successfully!";
         } else {
-            echo "Error: " . $con->error;
+            echo "Failed to edit!";
         }
     }
 

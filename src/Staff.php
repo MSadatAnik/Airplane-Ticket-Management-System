@@ -3,7 +3,6 @@
 Class Staff{
 
     private $id;
-    private $type;
     private $name;
 
 

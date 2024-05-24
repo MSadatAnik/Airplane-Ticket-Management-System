@@ -14,7 +14,7 @@
     session_start();
 
     //stroing id for edit flight
-    $flight = new flight();
+    $flight = new App\flight();
     if (isset($_GET['id'])) 
     {
         $id = $_GET['id'];

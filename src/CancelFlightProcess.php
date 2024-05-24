@@ -3,7 +3,7 @@ require_once("Connection.php");
 require_once("Flight.php");
 session_start();
 
-$flight = new flight();
+$flight = new App\flight();
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
